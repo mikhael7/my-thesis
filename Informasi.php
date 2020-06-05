@@ -82,7 +82,7 @@
 
             if(mysqli_num_rows($result)==0) {
                 echo'
-                    <div class="notfound">
+                    <div>
                         <img src="./nodata-img/noimage.png">
                         <h3>Tidak ada data</h3>
                     </div>
@@ -100,7 +100,7 @@
                             echo '
                             <p class="card-text">
                                 '.$infomindesc.'
-                                <a href="infodetail.php?infoid ='.$row['info_id'].'">Selengkapnya ...</a>
+                                <a href="infodetail.php?infoid='.$row['info_id'].'">Selengkapnya ...</a>
                             </p>
                         </div>
                     </div>
