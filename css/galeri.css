@@ -22,12 +22,15 @@ main {
     box-shadow: 2px 3px 9px #aaaaaa;
     max-width: 18rem;
     margin: 5px;
+    padding:5px;
 }
 .card-body {
-    max-width: 512px;
+    margin:5px;
+    padding:5px;
 }
 .card-title {
     color:black;
+    margin-bottom: 0px;;
 }
 .card-text {
     color:black;
@@ -36,7 +39,7 @@ main {
     color:black;
 }
 .card-img-top  {
-    margin-top: 20px;
+    margin-top: 10px;
     width: 215px;
     height: 215px;
     margin-left: auto;

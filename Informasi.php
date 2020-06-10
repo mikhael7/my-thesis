@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pengenalan</title>
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/info.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css?version=1" rel="stylesheet">
+    <link href="./css/info.css?version=1" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
 <body>
@@ -34,7 +34,7 @@
                     <a class="nav-item nav-link" href="Pengenalan.php">Pengenalan</a>
                 </li>
                 <li>
-                    <a class="nav-item nav-link Active" href="Informasi.php">Informasi<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active" href="Informasi.php">Informasi<span class="sr-only">(current)</span></a>
                 </li>
                 <li>
                     <a class="nav-item nav-link" href="Galeri.php">Galeri</a>
@@ -99,7 +99,7 @@
                             $infomindesc = substr($row['info_deskripsi'], 0, 100);
                             echo '
                             <p class="card-text">
-                                '.$infomindesc.'
+                                '.$infomindesc.' <br>
                                 <a href="infodetail.php?infoid='.$row['info_id'].'">Selengkapnya ...</a>
                             </p>
                         </div>
@@ -117,10 +117,17 @@
             <strong >Page <?php echo $page_no." of ".$total_no_of_pages; ?></strong>
         <!-- paganation -->    
         <ul class="pagination justify-content-center" style="padding: 10px 5px 10px 5px">
+            <?php if($page_no > 1){
+                echo "<li class='page-item' ><a class='page-link' href='Informasi.php?page_no=1'>&lsaquo;&lsaquo; First</a></li>";
+            } ?>
+            
             <li class="page-item" <?php if($page_no <= 1){ echo "class='disabled'"; } ?>>
                 <a class="page-link" <?php if($page_no > 1){
-                echo "href='Informasi.php?page_no=$previous_page'";
-                } ?>>Previous</a>
+                    echo "href='Informasi.php?page_no=$previous_page'";
+                } ?> aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
             </li>
             
             <?php if($page_no <= 10){
@@ -138,11 +145,14 @@
                 } ?>>
                 <a class="page-link" <?php if($page_no < $total_no_of_pages) {
                 echo "href='Informasi.php?page_no=$next_page'";
-                } ?>>Next</a>
+                } ?> aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
             </li>
         
             <?php if($page_no < $total_no_of_pages){
-            echo "<li class='page-item' ><a class='page-link' href='Informasi.php?page_no=$total_no_of_pages'>Last &rsaquo;&rsaquo;</a></li>";
+                echo "<li class='page-item' ><a class='page-link' href='Informasi.php?page_no=$total_no_of_pages'>Last &rsaquo;&rsaquo;</a></li>";
             } ?>
         </ul>
     <!-- End Paganation -->
